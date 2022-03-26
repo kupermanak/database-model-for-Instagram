@@ -30,7 +30,8 @@ class Follower(Base):
 class Post(Base):
     __tablename__ = "post"
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer)
+    user_id = Column(Integer, ForeignKey('user.id'))
+    user = relationship(User)
 
 class Media(Base):
     __tablename__ = "media"
